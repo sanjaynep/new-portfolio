@@ -30,7 +30,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(275deg, #f3eaea, #C0C0C0); /* Black to Gold */
+  background: linear-gradient(275deg, #f8f6f6, #e7e5e5); 
   color: #FFFFFF;
   font-family: 'Lato', sans-serif;
 

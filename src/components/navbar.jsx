@@ -32,7 +32,6 @@ export default function Header() {
                 <Container className='color-dark'>
                     <Navbar.Brand className="text-white navbar-brand-mobile" style={{ fontFamily: "'Brush Script MT', cursive", fontStyle: "italic" }}>Sanjay</Navbar.Brand>
 
-                    {/* Desktop navbar links (same items as mobile) */}
                     <Nav className="nav d-none d-lg-flex">
                         {navItems.map((item) => (
                             <Nav.Link
@@ -45,7 +44,6 @@ export default function Header() {
                         ))}
                     </Nav>
 
-                    {/* Mobile toggle (same icon / behavior) */}
                     <Navbar.Toggle 
                         aria-controls="basic-navbar-nav" 
                         className={`custom-toggler d-lg-none ${overlayOpen ? 'active' : ''}`}
@@ -58,7 +56,6 @@ export default function Header() {
                 </Container>
             </Navbar>
 
-            {/* Fixed transparent overlay for nav on small screens, does not push content */}
             <div className={`nav-overlay ${overlayOpen ? 'show' : ''}`}>
                 <div className="nav-overlay-inner">
                     {navItems.map((item) => (
