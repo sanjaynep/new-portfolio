@@ -26,7 +26,6 @@ export default function Education() {
               </div>
               <ul className="space-y-2 text-sm text-brand/60 leading-relaxed">
                 <li className="flex gap-2"><span className="text-brand/30 mt-0.5 shrink-0">•</span>Currently in 7th semester, focused on AI/ML development and scalable application design.</li>
-                <li className="flex gap-2"><span className="text-brand/30 mt-0.5 shrink-0">•</span>Final-year research: intelligent, symptom-based diagnostic assistants using high-precision modeling — reaching 96% accuracy.</li>
               </ul>
             </div>
 

@@ -2,7 +2,7 @@ import { FiArrowDown, FiGithub } from 'react-icons/fi'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 // Replace this with your actual photo:
-import profileImg from '../../public/sanjay3.png'
+import profileImg from '/sanjay3.png'
 
 
 export default function Hero() {
@@ -91,8 +91,7 @@ export default function Hero() {
               style={{ transitionDelay: '0.5s' }}
             >
               {[
-                { value: '7+', label: 'Projects' },
-                { value: '96%', label: 'Model Accuracy' },
+                { value: '10+', label: 'Projects' },
                 { value: '2', label: 'Certifications' },
                 { value: '7th', label: 'Semester' },
               ].map((s) => (

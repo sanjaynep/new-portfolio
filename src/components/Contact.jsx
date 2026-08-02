@@ -9,9 +9,7 @@ const contactLinks = [
   { icon: FiMail, label: 'poudelsanjay93@gmail.com', href: 'mailto:poudelsanjay93@gmail.com' },
   { icon: FiPhone, label: '+977 9742354671', href: 'tel:+9779742354671' },
   { icon: FiLinkedin, label: 'linkedin.com/in/sanjaychudali01', href: 'https://linkedin.com/in/sanjaychudali01' },
-  { icon: FiGithub, label: 'github.com/sanjaynep', href: 'https://github.com/sanjaynep' },
-  { icon: FiGlobe, label: 'sanjayp.me', href: 'https://sanjayp.me' },
-]
+  { icon: FiGithub, label: 'github.com/sanjaynep', href: 'https://github.com/sanjaynep' }]
 
 // ─── Fill these from emailjs.com dashboard ───
 const SERVICE_ID = 'YOUR_SERVICE_ID'
