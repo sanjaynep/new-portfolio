@@ -13,6 +13,11 @@
 
 ::selection { background: #0a0f26; color: #fff; }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
   background: #F3F1E7;
   color: #0a0f26;
@@ -96,27 +101,141 @@ body {
 
 .Toastify__toast-theme--light { background: #0a0f26 !important; color: #fff !important; }
 
-/* ── Portal ring glow pulse ── */
-@keyframes glow-pulse {
-  0%, 100% {
-    opacity: 0.85;
-    box-shadow:
-      0 0 20px rgba(251, 191, 36, 0.25),
-      0 0 50px rgba(251, 191, 36, 0.12),
-      0 0 100px rgba(251, 191, 36, 0.06),
-      inset 0 0 20px rgba(251, 191, 36, 0.08),
-      inset 0 0 50px rgba(251, 191, 36, 0.03);
+
+
+/* ══════════════════════════════════════════
+   MOBILE GAP FIX — outside Tailwind layers
+   so it wins over all utility classes
+   ══════════════════════════════════════════ */
+
+@media (max-width: 639px) {
+
+  /* Kill all section padding */
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    overflow-x: hidden !important;
   }
-  50% {
-    opacity: 1;
-    box-shadow:
-      0 0 28px rgba(251, 191, 36, 0.35),
-      0 0 65px rgba(251, 191, 36, 0.18),
-      0 0 130px rgba(251, 191, 36, 0.1),
-      inset 0 0 28px rgba(251, 191, 36, 0.12),
-      inset 0 0 65px rgba(251, 191, 36, 0.06);
+
+  /* Hero specifically — less top padding since navbar is there */
+  section#hero {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Kill all gap utilities */
+  [class*="gap-"] {
+    gap: 0.5rem !important;
+  }
+
+  /* Hero grid gap slightly more */
+  section#hero .grid {
+    gap: 0.75rem !important;
+  }
+
+  /* Kill all margin-bottom */
+  [class*="mb-1"] { margin-bottom: 0.25rem !important; }
+  [class*="mb-2"] { margin-bottom: 0.35rem !important; }
+  [class*="mb-3"] { margin-bottom: 0.5rem !important; }
+  [class*="mb-4"] { margin-bottom: 0.5rem !important; }
+  [class*="mb-5"] { margin-bottom: 0.5rem !important; }
+  [class*="mb-6"] { margin-bottom: 0.75rem !important; }
+  [class*="mb-8"] { margin-bottom: 0.75rem !important; }
+  [class*="mb-10"] { margin-bottom: 1rem !important; }
+  [class*="mb-12"] { margin-bottom: 1rem !important; }
+  [class*="mb-14"] { margin-bottom: 1rem !important; }
+  [class*="mb-16"] { margin-bottom: 1rem !important; }
+  [class*="mb-20"] { margin-bottom: 1.25rem !important; }
+  [class*="mb-32"] { margin-bottom: 1.5rem !important; }
+
+  /* Kill all margin-top */
+  [class*="mt-4"] { margin-top: 0.5rem !important; }
+  [class*="mt-6"] { margin-top: 0.5rem !important; }
+  [class*="mt-8"] { margin-top: 0.75rem !important; }
+  [class*="mt-10"] { margin-top: 0.75rem !important; }
+  [class*="mt-12"] { margin-top: 0.75rem !important; }
+  [class*="mt-14"] { margin-top: 0.75rem !important; }
+  [class*="mt-16"] { margin-top: 1rem !important; }
+
+  /* Kill all padding-top on inner divs */
+  [class*="pt-4"] { padding-top: 0.5rem !important; }
+  [class*="pt-5"] { padding-top: 0.5rem !important; }
+  [class*="pt-6"] { padding-top: 0.5rem !important; }
+  [class*="pt-8"] { padding-top: 0.5rem !important; }
+  [class*="pt-10"] { padding-top: 0.75rem !important; }
+  [class*="pt-12"] { padding-top: 0.75rem !important; }
+
+  /* Kill all padding-bottom on inner divs */
+  [class*="pb-8"] { padding-bottom: 0.5rem !important; }
+  [class*="pb-10"] { padding-bottom: 0.5rem !important; }
+  [class*="pb-12"] { padding-bottom: 0.75rem !important; }
+
+  /* Kill card padding */
+  [class*="p-5"] { padding: 0.75rem !important; }
+  [class*="p-6"] { padding: 0.75rem !important; }
+  [class*="p-8"] { padding: 1rem !important; }
+
+  /* Kill space-y children margins */
+  [class*="space-y-1"] > * + * { margin-top: 0.25rem !important; }
+  [class*="space-y-2"] > * + * { margin-top: 0.25rem !important; }
+  [class*="space-y-3"] > * + * { margin-top: 0.35rem !important; }
+  [class*="space-y-4"] > * + * { margin-top: 0.5rem !important; }
+  [class*="space-y-5"] > * + * { margin-top: 0.5rem !important; }
+  [class*="space-y-6"] > * + * { margin-top: 0.75rem !important; }
+
+  /* Hero inner container — kill vertical padding */
+  section#hero > div > div {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  /* Footer */
+  footer {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
   }
 }
-.portal-ring {
-  animation: glow-pulse 4s ease-in-out infinite;
+
+/* Tab view */
+@media (min-width: 640px) and (max-width: 1023px) {
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    overflow-x: hidden !important;
+  }
+
+  section#hero {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  [class*="gap-16"],
+  [class*="gap-20"] {
+    gap: 1.5rem !important;
+  }
+
+  [class*="mb-16"],
+  [class*="mb-20"],
+  [class*="mb-32"] {
+    margin-bottom: 2rem !important;
+  }
+
+  [class*="mt-14"],
+  [class*="mt-16"] {
+    margin-top: 1.5rem !important;
+  }
+
+  [class*="p-8"] { padding: 1.5rem !important; }
+}
+
+/* Navbar: transparent on large, solid on mobile */
+@media (min-width: 1024px) {
+  nav {
+    background: rgba(243,241,231,0.8) !important;
+    backdrop-filter: blur(12px) !important;
+    box-shadow: none !important;
+  }
+  nav.scrolled-nav {
+    box-shadow: 0 1px 3px rgb(10 15 38 / 0.06) !important;
+  }
 }

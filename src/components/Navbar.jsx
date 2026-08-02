@@ -15,10 +15,19 @@ export default function Navbar() {
   const [active, setActive] = useState('')
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.pageYOffset > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const onScroll = () => {
+    const nav = document.querySelector('nav')
+    if (window.pageYOffset > 20) {
+      nav.classList.add('scrolled-nav')
+      setScrolled(true)
+    } else {
+      nav.classList.remove('scrolled-nav')
+      setScrolled(false)
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true })
+  return () => window.removeEventListener('scroll', onScroll)
+}, [])
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]')
@@ -40,9 +49,9 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: 'rgba(243,241,231,0.8)',
-        backdropFilter: 'blur(12px)',
-        boxShadow: scrolled ? '0 1px 3px rgb(10 15 38 / 0.06)' : 'none',
+        background: 'rgb(232, 230, 222)',
+        backdropFilter: 'none',
+        boxShadow: scrolled ? '0 1px 3px rgb(10 15 38 / 0.08)' : '0 1px 2px rgb(10 15 38 / 0.04)',
       }}
     >
       <div className="max-w-site mx-auto px-6 lg:px-12">
@@ -56,9 +65,8 @@ export default function Navbar() {
               <a
                 key={l.href}
                 href={l.href}
-                className={`nav-link text-sm font-medium transition-colors ${
-                  active === l.href.slice(1) ? 'text-brand active' : 'text-brand/70 hover:text-brand'
-                }`}
+                className={`nav-link text-sm font-medium transition-colors ${active === l.href.slice(1) ? 'text-brand active' : 'text-brand/70 hover:text-brand'
+                  }`}
               >
                 {l.label}
               </a>
@@ -89,9 +97,8 @@ export default function Navbar() {
       )}
 
       <div
-        className={`mobile-menu fixed top-0 right-0 bottom-0 w-72 bg-cream shadow-2xl md:hidden z-50 ${
-          open ? 'open' : ''
-        }`}
+        className={`mobile-menu fixed top-0 right-0 bottom-0 w-72 bg-cream shadow-2xl md:hidden z-50 ${open ? 'open' : ''
+          }`}
       >
         <div className="flex items-center justify-between p-6 border-b border-brand/10">
           <span className="font-display font-bold text-lg tracking-tight text-brand">Menu</span>
