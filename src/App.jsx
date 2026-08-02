@@ -1,32 +1,25 @@
-import { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
-import { ToastContainer } from 'react-toastify';
-import Header from "./components/navbar.jsx"
-import Profile from "./components/profile.jsx"
-import About from './components/aboutme.jsx';
-import Skills from './components/skills.jsx';
-import Project from './components/projects.jsx';
-import Education from './components/education.jsx';
-import Contact from './components/contact.jsx';
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import AboutMe from './components/AboutMe'
+import Skills from './components/Skills'
+import Experience from './components/Experience'
+import Projects from './components/Projects'
+import Education from './components/Education'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
-
-function App() {
-  
+export default function App() {
   return (
     <>
-      <ToastContainer />
-      <Header />
-      <div className="main-content">
-        < Profile /> 
-        < About />
-        < Skills />
-        < Project/>
-        < Education />
-        <Contact />
-      </div>
+      <Navbar />
+      <Hero />
+      <AboutMe />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Education />
+      <Contact />
+      <Footer />
     </>
   )
 }
-
-export default App
